@@ -1,0 +1,39 @@
+.user-name{
+    margin-top: 1rem;
+}
+.postssect{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 10px;
+    .card-title{
+        font-size: 1rem;
+    }
+    .card-text{
+        font-size: 0.9rem;
+    }
+    .user-name{
+        font-size: 1rem;
+
+    }
+}
+@media (max-width: 900px) {
+    .user-name{
+        font-size: 0.9rem;
+
+    }
+
+  }
+
+@media (max-width: 375px) {
+     .card-title{
+        font-size: 0.8rem;
+    }
+    .card-text{
+        font-size: 0.6rem;
+    }
+    .user-name{
+        font-size: 0.8rem;
+
+    }
+  }

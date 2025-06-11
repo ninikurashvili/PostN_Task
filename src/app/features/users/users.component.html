@@ -1,0 +1,68 @@
+<section class="d-flex flex-column justify-content-center align-items-center">
+  <div
+    class="navbar navbar-light  d-flex justify-content-start"
+    style="width: 100%"
+  >
+    <form class="form-inline d-flex">
+      <div class="d-flex flex-row align-items-center position-relative">
+        <i
+          class="fa-solid fa-magnifying-glass position-absolute"
+          style="left: 10px; z-index: 2; color: #6c757d"
+        ></i>
+        <input
+          class="form-control"
+          type="search"
+          id="search"
+          name="search"
+          [(ngModel)]="userSearch"
+          placeholder="Search"
+          aria-label="Search"
+          (keyup)="applySearch()"
+          style="padding-left: 35px"
+        />
+      </div>
+    </form>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Company</th>
+        <th scope="col">Posts</th>
+        <th scope="col">Todos</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (users.length!=0) { @for (user of users; track user.id) {
+      <tr>
+        <th scope="row">{{ user.id }}</th>
+        <td style="word-break: break-word;">{{ user.name }}</td>
+        <td style="word-break: break-word;">{{ user.email}}</td>
+        <td style="word-break: break-word;">{{ user.phone }}</td>
+        <td style="word-break: break-word;">{{ user.company.name }}</td>
+        <td>
+          <button
+            class="btn btn-primary animated-button"
+            type="button"
+            (click)="viewPosts(user.id)"
+          >
+            Posts
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-primary animated-button"
+            type="button"
+            (click)="viewTodos(user.id)"
+          >
+            Todos
+          </button>
+        </td>
+      </tr>
+      }}
+    </tbody>
+  </table>
+</section>

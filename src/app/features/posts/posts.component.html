@@ -1,0 +1,35 @@
+<div class="post-details">
+<app-post-details 
+  *ngIf="selectedPost"
+  [post]="selectedPost!"
+  (close)="closeModal()"
+></app-post-details>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">UserName</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(posts.length!=0){ @for (post of posts; track post.id ) {
+    <tr>
+      <th scope="row">{{ post.id }}</th>
+      <td style="word-break: break-word">{{ post.title }}</td>
+      <td style="word-break: break-word">{{ post.userName }}</td>
+      <td>
+        <button
+          class="btn btn-primary animated-button"
+          type="button"
+          (click)="showDetails(post)"
+        >
+          details
+        </button>
+      </td>
+    </tr>
+    } }
+  </tbody>
+</table>

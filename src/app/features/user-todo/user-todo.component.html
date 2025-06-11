@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Todo List: {{user?.name}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(todos.length!=0){
+    @for (todo of todos; track todo.id ) {
+        <tr>
+      @if(todo.completed==true){
+            <td style="color: green;"><b>{{todo.title}}</b></td>
+        }
+        @else{
+             <td>{{todo.title}}</td>
+        }
+    </tr>
+    }
+}
+  </tbody>
+</table>
